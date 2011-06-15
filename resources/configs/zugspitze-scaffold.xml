@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.foomo.org/zugspitze" xsi:schemaLocation="http://www.foomo.org/zugspitze http://foomo.bestbytes.net/zugspitze/scaffold.xsd">
+	<id>org.foomo.zugspitze.module.examples</id>
+	<type>Implementation Project</type>
+	<name>Foomigo Zugspitze Module Examples.</name>
+	<description>Includes some services</description>
+	<dependencies>
+		<id>org.foomo.zugspitze.core</id>
+		<id>org.foomo.zugspitze.services</id>
+		<id>org.foomo.zugspitze.module</id>
+	</dependencies>
+	<applications>
+		<application>
+			<id>org.foomo.zugspitze.module.examples.components.upload</id>
+			<name>Upload Component</name>
+			<description>A chunked upload example</description>
+			<package>org.foomo.zugspitze.examples.components.upload</package>
+			<sources>
+				<path>src/org/foomo/zugspitze/examples/components/upload</path>
+			</sources>
+		</application>
+	</applications>
+</config>
