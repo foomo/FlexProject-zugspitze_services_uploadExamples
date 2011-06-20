@@ -18,8 +18,7 @@ package org.foomo.zugspitze.examples.components.upload.controllers
 
 		public function initialize():void
 		{
-			// TODO: handle operation faults?
-			//this.model.addEventListener(OperationEvent.OPERATION_ERROR, this.model_operationErrorHandler);
+			this.model.addEventListener(OperationEvent.UNHANDLED_OPERATION_ERROR, this.model_operationErrorHandler);
 		}
 
 		//-----------------------------------------------------------------------------------------
@@ -40,7 +39,7 @@ package org.foomo.zugspitze.examples.components.upload.controllers
 
 		private function model_operationErrorHandler(event:OperationEvent):void
 		{
-			//Alert.show(event.operationError, 'Model Operation Error', Alert.OK);
+			Alert.show(event.untypedError, 'Model Operation Error', Alert.OK);
 		}
 
 		//-----------------------------------------------------------------------------------------
