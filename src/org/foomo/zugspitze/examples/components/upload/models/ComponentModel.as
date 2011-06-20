@@ -10,6 +10,15 @@ package org.foomo.zugspitze.examples.components.upload.models
 		// ~ Variables
 		//-----------------------------------------------------------------------------------------
 
-		public var fileReferenceModel:FileReferenceModel = new FileReferenceModel('http://radact.interact.com/creation/modules/Zugspitze/services/upload.php/Rad.Services.RPC/serve');
+		public var fileReferenceModel:FileReferenceModel
+
+		//-----------------------------------------------------------------------------------------
+		// ~ Constructor
+		//-----------------------------------------------------------------------------------------
+
+		public function ComponentModel()
+		{
+			this.fileReferenceModel = this.registerModel(new FileReferenceModel('http://foomo.radact.interact.com/foomo/modules/Foomo.Zugspitze/services/upload.php/Foomo.Services.RPC/serve'));
+		}
 	}
 }
