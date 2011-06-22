@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.foomo.org/zugspitze" xsi:schemaLocation="http://www.foomo.org/zugspitze http://foomo.bestbytes.net/zugspitze/scaffold.xsd">
 	<id>org.foomo.zugspitze.services.upload.examples</id>
 	<type>Implementation Project</type>
-	<name>Foomigo Zugspitze Module Examples.</name>
+	<name>Upload Service Examples.</name>
 	<description>Includes some services</description>
 	<dependencies>
 		<id>org.foomo.zugspitze.core</id>
