@@ -11,7 +11,7 @@
 	</dependencies>
 	<applications>
 		<application>
-			<id>org.foomo.zugspitze.module.examples.components.upload</id>
+			<id>org.foomo.zugspitze.examples.components.upload</id>
 			<name>Upload Component</name>
 			<description>A chunked upload example</description>
 			<package>org.foomo.zugspitze.examples.components.upload</package>
