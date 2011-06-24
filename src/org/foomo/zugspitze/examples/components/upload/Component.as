@@ -4,12 +4,12 @@ package org.foomo.zugspitze.examples.components.upload
 
 	import mx.events.FlexEvent;
 
-	import org.foomo.zugspitze.apps.GroupComponent;
+	import org.foomo.zugspitze.apps.ZuspitzeGroup;
 	import org.foomo.zugspitze.examples.components.upload.controllers.ComponentController;
 	import org.foomo.zugspitze.examples.components.upload.models.ComponentModel;
 	import org.foomo.zugspitze.examples.components.upload.views.ComponentView;
 
-	public class Component extends GroupComponent
+	public class Component extends ZuspitzeGroup
 	{
 		//-----------------------------------------------------------------------------------------
 		// ~ Constructor
