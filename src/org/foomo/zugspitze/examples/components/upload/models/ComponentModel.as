@@ -20,10 +20,10 @@ package org.foomo.zugspitze.examples.components.upload.models
 	import org.foomo.zugspitze.services.upload.models.FileReferenceModel;
 
 	[Bindable]
-	
+
 	/**
-	 * @link    www.foomo.org
-	 * @license www.gnu.org/licenses/lgpl.txt
+	 * @link    http://www.foomo.org
+	 * @license http://www.gnu.org/licenses/lgpl.txt
 	 * @author  franklin <franklin@weareinteractive.com>
 	 */
 	public class ComponentModel extends ZugspitzeModel
