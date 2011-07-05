@@ -20,10 +20,10 @@ package org.foomo.zugspitze.spark.components.upload
 
 	import mx.events.FlexEvent;
 
-	import org.foomo.zugspitze.apps.ZugspitzeGroup;
 	import org.foomo.zugspitze.spark.components.upload.controllers.ComponentController;
 	import org.foomo.zugspitze.spark.components.upload.models.ComponentModel;
 	import org.foomo.zugspitze.spark.components.upload.views.ComponentView;
+	import org.foomo.zugspitze.spark.core.ZugspitzeGroup;
 
 	/**
 	 * @link    http://www.foomo.org

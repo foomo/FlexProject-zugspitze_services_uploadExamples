@@ -9,6 +9,7 @@
 		<id>org.foomo.core</id>
 		<id>org.foomo.rpc</id>
 		<id>org.foomo.zugspitze.core</id>
+		<id>org.foomo.zugspitze.spark</id>
 		<id>org.foomo.zugspitze.rpc</id>
 		<id>org.foomo.zugspitze.services.upload</id>
 	</dependencies>
