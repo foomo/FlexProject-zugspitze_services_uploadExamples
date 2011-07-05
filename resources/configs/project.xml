@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.foomo.org" xsi:schemaLocation="http://www.foomo.org http://www.foomo.org/foomo/modules/Foomo.Flash/schemas/project.xsd">
+	<id>org.foomo.zugspitze.services.upload.examples</id>
+	<group>org.foomo.zugspitze.services</group>
+	<type>Implementation Project</type>
+	<name>Upload Service Examples.</name>
+	<description>Includes some services</description>
+	<dependencies>
+		<id>org.foomo.core</id>
+		<id>org.foomo.rpc</id>
+		<id>org.foomo.zugspitze.core</id>
+		<id>org.foomo.zugspitze.rpc</id>
+		<id>org.foomo.zugspitze.services.upload</id>
+	</dependencies>
+	<applications>
+		<application>
+			<id>org.foomo.zugspitze.spark.components.upload</id>
+			<name>Upload Component</name>
+			<description>A chunked upload example</description>
+			<package>org.foomo.zugspitze.spark.components.upload</package>
+			<sources>
+				<path>src/org/foomo/zugspitze/spark/components/upload</path>
+			</sources>
+		</application>
+	</applications>
+</config>

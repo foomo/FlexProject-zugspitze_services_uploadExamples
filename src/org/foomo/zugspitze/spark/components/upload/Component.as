@@ -14,33 +14,44 @@
  * You should have received a copy of the GNU Lesser General Public License along with
  * the foomo Opensource Framework. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.foomo.zugspitze.examples.components.upload.models
+package org.foomo.zugspitze.spark.components.upload
 {
-	import org.foomo.zugspitze.core.ZugspitzeModel;
-	import org.foomo.zugspitze.services.upload.models.FileReferenceModel;
+	import flash.events.Event;
 
-	[Bindable]
+	import mx.events.FlexEvent;
+
+	import org.foomo.zugspitze.apps.ZugspitzeGroup;
+	import org.foomo.zugspitze.spark.components.upload.controllers.ComponentController;
+	import org.foomo.zugspitze.spark.components.upload.models.ComponentModel;
+	import org.foomo.zugspitze.spark.components.upload.views.ComponentView;
 
 	/**
 	 * @link    http://www.foomo.org
 	 * @license http://www.gnu.org/licenses/lgpl.txt
 	 * @author  franklin <franklin@weareinteractive.com>
 	 */
-	public class ComponentModel extends ZugspitzeModel
+	public class Component extends ZugspitzeGroup
 	{
-		//-----------------------------------------------------------------------------------------
-		// ~ Variables
-		//-----------------------------------------------------------------------------------------
-
-		public var fileReferenceModel:FileReferenceModel
-
 		//-----------------------------------------------------------------------------------------
 		// ~ Constructor
 		//-----------------------------------------------------------------------------------------
 
-		public function ComponentModel()
+		public function Component()
 		{
-			this.fileReferenceModel = this.registerModel(new FileReferenceModel('http://foomo.radact.interact.com/foomo/modules/Foomo.Zugspitze/services/upload.php/Foomo.Services.RPC/serve'));
+			super();
+			this.viewClass = ComponentView;
+			this.modelClass = ComponentModel;
+			this.controllerClass = ComponentController;
+			this.addEventListener(FlexEvent.CREATION_COMPLETE, this.creationCompleteHandler);
+		}
+
+		//-----------------------------------------------------------------------------------------
+		// ~ Private Eventhandler
+		//-----------------------------------------------------------------------------------------
+
+		private function creationCompleteHandler(event:Event):void
+		{
+			ComponentController(this.controller).initialize();
 		}
 	}
 }

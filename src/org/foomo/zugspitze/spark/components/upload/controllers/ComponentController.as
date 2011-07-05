@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU Lesser General Public License along with
  * the foomo Opensource Framework. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.foomo.zugspitze.examples.components.upload.controllers
+package org.foomo.zugspitze.spark.components.upload.controllers
 {
 	import flash.net.FileFilter;
 
@@ -22,8 +22,8 @@ package org.foomo.zugspitze.examples.components.upload.controllers
 
 	import org.foomo.zugspitze.core.ZugspitzeController;
 	import org.foomo.zugspitze.events.OperationEvent;
-	import org.foomo.zugspitze.examples.components.upload.models.ComponentModel;
-	import org.foomo.zugspitze.examples.components.upload.views.ComponentView;
+	import org.foomo.zugspitze.spark.components.upload.models.ComponentModel;
+	import org.foomo.zugspitze.spark.components.upload.views.ComponentView;
 	import org.foomo.zugspitze.services.upload.commands.SelectAndUploadFileCommand;
 
 	/**

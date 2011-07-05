@@ -2,7 +2,7 @@
 <s:VGroup
 	xmlns:fx="http://ns.adobe.com/mxml/2009"
 	xmlns:s="library://ns.adobe.com/flex/spark"
-	xmlns:upload="org.foomo.zugspitze.examples.components.upload.*"
+	xmlns:upload="org.foomo.zugspitze.spark.components.upload.*"
 	horizontalAlign="center"
 	verticalAlign="middle"
 	width="100%"

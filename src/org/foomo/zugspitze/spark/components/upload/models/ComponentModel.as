@@ -14,44 +14,33 @@
  * You should have received a copy of the GNU Lesser General Public License along with
  * the foomo Opensource Framework. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.foomo.zugspitze.examples.components.upload
+package org.foomo.zugspitze.spark.components.upload.models
 {
-	import flash.events.Event;
+	import org.foomo.zugspitze.core.ZugspitzeModel;
+	import org.foomo.zugspitze.services.upload.models.FileReferenceModel;
 
-	import mx.events.FlexEvent;
-
-	import org.foomo.zugspitze.apps.ZugspitzeGroup;
-	import org.foomo.zugspitze.examples.components.upload.controllers.ComponentController;
-	import org.foomo.zugspitze.examples.components.upload.models.ComponentModel;
-	import org.foomo.zugspitze.examples.components.upload.views.ComponentView;
+	[Bindable]
 
 	/**
 	 * @link    http://www.foomo.org
 	 * @license http://www.gnu.org/licenses/lgpl.txt
 	 * @author  franklin <franklin@weareinteractive.com>
 	 */
-	public class Component extends ZugspitzeGroup
+	public class ComponentModel extends ZugspitzeModel
 	{
+		//-----------------------------------------------------------------------------------------
+		// ~ Variables
+		//-----------------------------------------------------------------------------------------
+
+		public var fileReferenceModel:FileReferenceModel
+
 		//-----------------------------------------------------------------------------------------
 		// ~ Constructor
 		//-----------------------------------------------------------------------------------------
 
-		public function Component()
+		public function ComponentModel()
 		{
-			super();
-			this.viewClass = ComponentView;
-			this.modelClass = ComponentModel;
-			this.controllerClass = ComponentController;
-			this.addEventListener(FlexEvent.CREATION_COMPLETE, this.creationCompleteHandler);
-		}
-
-		//-----------------------------------------------------------------------------------------
-		// ~ Private Eventhandler
-		//-----------------------------------------------------------------------------------------
-
-		private function creationCompleteHandler(event:Event):void
-		{
-			ComponentController(this.controller).initialize();
+			this.fileReferenceModel = this.registerModel(new FileReferenceModel('http://foomo.radact.interact.com/foomo/modules/Foomo.Zugspitze/services/upload.php/Foomo.Services.RPC/serve'));
 		}
 	}
 }
