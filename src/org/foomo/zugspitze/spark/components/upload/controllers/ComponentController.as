@@ -22,7 +22,7 @@ package org.foomo.zugspitze.spark.components.upload.controllers
 
 	import org.foomo.zugspitze.core.ZugspitzeController;
 	import org.foomo.zugspitze.events.OperationEvent;
-	import org.foomo.zugspitze.operations.EventDispatcherChain;
+	import org.foomo.core.EventDispatcherChain;
 	import org.foomo.zugspitze.operations.Operation;
 	import org.foomo.zugspitze.operations.OperationChain;
 	import org.foomo.zugspitze.services.upload.operations.BrowseFileReferenceOperation;
