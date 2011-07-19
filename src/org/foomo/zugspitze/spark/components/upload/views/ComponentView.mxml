@@ -17,22 +17,15 @@
 			//-----------------------------------------------------------------------------------------
 
 			include 'ViewInclude.as';
+
+			private function browseFileErrorCallback(error:String):void
+			{
+					this.browseButton.errorString = error
+			}
 		]]>
 	</fx:Script>
-	<s:Image source="{this.model.fileReferenceModel.uploadReferenceURI}"/>
-	<s:Button id="browseButton" label="SELECT A FILE TO UPLOAD" click="this.controller.browse()"/>
-
-	<fx:Declarations>
-		<!--
-		<upload:ModelValidator
-			trigger="{this.model}"
-			triggerEvent="{OperationEvent.OPERATION_ERROR}"
-			triggerEventProperty="error"
-			propertyEquals="{BrowseFileReferenceOperation.SIZE_TOO_BIG_ERROR}"
-			errorString="Die gewählte datei ist zu groß!"
-			listener="{this.browseButton}"
-			/>
-		-->
-	</fx:Declarations>
+	<s:Image source="{this.model.uploadReferenceUri}"/>
+	<s:Image source="{this.model.fileReference.data}"/>
+	<s:Button id="browseButton" label="SELECT A FILE TO UPLOAD" click="this.controller.browse(this.browseFileErrorCallback)"/>
 
 </s:VGroup>

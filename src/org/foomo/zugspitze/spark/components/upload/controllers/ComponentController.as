@@ -22,9 +22,14 @@ package org.foomo.zugspitze.spark.components.upload.controllers
 
 	import org.foomo.zugspitze.core.ZugspitzeController;
 	import org.foomo.zugspitze.events.OperationEvent;
+	import org.foomo.zugspitze.operations.EventDispatcherChain;
+	import org.foomo.zugspitze.operations.Operation;
+	import org.foomo.zugspitze.operations.OperationChain;
+	import org.foomo.zugspitze.services.upload.operations.BrowseFileReferenceOperation;
+	import org.foomo.zugspitze.services.upload.operations.LoadFileReferenceOperation;
+	import org.foomo.zugspitze.services.upload.operations.UploadFileReferenceOperation;
 	import org.foomo.zugspitze.spark.components.upload.models.ComponentModel;
 	import org.foomo.zugspitze.spark.components.upload.views.ComponentView;
-	import org.foomo.zugspitze.services.upload.commands.SelectAndUploadFileCommand;
 
 	/**
 	 * @link    http://www.foomo.org
@@ -39,7 +44,6 @@ package org.foomo.zugspitze.spark.components.upload.controllers
 
 		public function initialize():void
 		{
-			this.model.addEventListener(OperationEvent.UNHANDLED_OPERATION_ERROR, this.model_operationErrorHandler);
 		}
 
 		//-----------------------------------------------------------------------------------------
@@ -49,9 +53,24 @@ package org.foomo.zugspitze.spark.components.upload.controllers
 		/**
 		 *
 		 */
-		public function browse():void
+		public function browse(browseFileErrorCalback:Function):void
 		{
-			this.executeCommand(new SelectAndUploadFileCommand(this.model.fileReferenceModel, [new FileFilter("Images (*.jpg, *.jpeg, *.png)", "*.jpg;*.jpeg;*.png")], 0, 0, false));
+			OperationChain
+				.create(BrowseFileReferenceOperation, [new FileFilter("Images (*.jpg, *.jpeg, *.png)", "*.jpg;*.jpeg;*.png")], 0, 0)
+				.addOperationCompleteCallback(trace, null, 'hello world')
+				.unloadOnOperationError()
+
+				.chainOnOperationComplete(LoadFileReferenceOperation, ['operation.result'])
+				.addOperationCompleteCallback(this.model.setFileReference, ['operation.result'])
+				.addOperationCompleteCallback(trace, null, 'hello again')
+				.unloadOnOperationError()
+
+				.chainOnOperationComplete(UploadFileReferenceOperation, ['operation.result'], this.model.uploadProxy)
+				.addOperationCompleteCallback(this.model.setUploadReference, ['operation.result'])
+				.addOperationCompleteCallback(trace, null, 'and hello again')
+				.unloadOnOperationComplete()
+				.unloadOnOperationError()
+			;
 		}
 
 		//-----------------------------------------------------------------------------------------
@@ -60,7 +79,7 @@ package org.foomo.zugspitze.spark.components.upload.controllers
 
 		private function model_operationErrorHandler(event:OperationEvent):void
 		{
-			Alert.show(event.untypedError, 'Model Operation Error', Alert.OK);
+			Alert.show(event.operation.error, 'Model Operation Error', Alert.OK);
 		}
 
 		//-----------------------------------------------------------------------------------------

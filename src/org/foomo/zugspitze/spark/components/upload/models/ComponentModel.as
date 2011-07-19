@@ -16,8 +16,12 @@
  */
 package org.foomo.zugspitze.spark.components.upload.models
 {
+	import flash.net.FileReference;
+	import flash.utils.ByteArray;
+
 	import org.foomo.zugspitze.core.ZugspitzeModel;
-	import org.foomo.zugspitze.services.upload.models.FileReferenceModel;
+	import org.foomo.zugspitze.services.upload.UploadProxy;
+	import org.foomo.zugspitze.services.upload.vos.UploadReference;
 
 	[Bindable]
 
@@ -29,10 +33,20 @@ package org.foomo.zugspitze.spark.components.upload.models
 	public class ComponentModel extends ZugspitzeModel
 	{
 		//-----------------------------------------------------------------------------------------
+		// ~ Proxy
+		//-----------------------------------------------------------------------------------------
+
+		public var uploadProxy:UploadProxy = new UploadProxy('http://foomo.radact.interact.com/foomo/modules/Foomo.Zugspitze/services/upload.php/Foomo.Services.RPC/serve');
+
+		//-----------------------------------------------------------------------------------------
 		// ~ Variables
 		//-----------------------------------------------------------------------------------------
 
-		public var fileReferenceModel:FileReferenceModel
+		public var uploadReference:UploadReference;
+
+		public var uploadReferenceUri:String;
+
+		public var fileReference:FileReference;
 
 		//-----------------------------------------------------------------------------------------
 		// ~ Constructor
@@ -40,7 +54,21 @@ package org.foomo.zugspitze.spark.components.upload.models
 
 		public function ComponentModel()
 		{
-			this.fileReferenceModel = this.registerModel(new FileReferenceModel('http://foomo.radact.interact.com/foomo/modules/Foomo.Zugspitze/services/upload.php/Foomo.Services.RPC/serve'));
+		}
+
+		//-----------------------------------------------------------------------------------------
+		// ~ Public methods
+		//-----------------------------------------------------------------------------------------
+
+		public function setUploadReference(uploadReference:UploadReference):void
+		{
+			this.uploadReference = uploadReference;
+			this.uploadReferenceUri = uploadReference.getReflectionUri(this.uploadProxy.endPoint);
+		}
+
+		public function setFileReference(fileRefernce:FileReference):void
+		{
+			this.fileReference = fileRefernce;
 		}
 	}
 }
