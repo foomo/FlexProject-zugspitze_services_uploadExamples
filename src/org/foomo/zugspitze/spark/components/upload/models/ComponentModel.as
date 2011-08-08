@@ -36,7 +36,8 @@ package org.foomo.zugspitze.spark.components.upload.models
 		// ~ Proxy
 		//-----------------------------------------------------------------------------------------
 
-		public var uploadProxy:UploadProxy = new UploadProxy('http://foomo.radact.interact.com/foomo/modules/Foomo.Zugspitze/services/upload.php/Foomo.Services.RPC/serve');
+		public var uploadProxy:UploadProxy = new UploadProxy('http://www.foomo.org/foomo/modules/Foomo.Zugspitze/services/upload.php/Foomo.Services.RPC/serve');
+		//public var uploadProxy:UploadProxy = new UploadProxy('http://foomo.radact.interact.com/foomo/modules/Foomo.Zugspitze/services/upload.php/Foomo.Services.RPC/serve');
 
 		//-----------------------------------------------------------------------------------------
 		// ~ Variables

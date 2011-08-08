@@ -20,8 +20,6 @@ package org.foomo.zugspitze.spark.components.upload
 
 	import mx.events.FlexEvent;
 
-	import org.foomo.logging.LogLevel;
-	import org.foomo.managers.LogManager;
 	import org.foomo.zugspitze.spark.components.upload.controllers.ComponentController;
 	import org.foomo.zugspitze.spark.components.upload.models.ComponentModel;
 	import org.foomo.zugspitze.spark.components.upload.views.ComponentView;
@@ -45,7 +43,6 @@ package org.foomo.zugspitze.spark.components.upload
 			this.modelClass = ComponentModel;
 			this.controllerClass = ComponentController;
 			this.addEventListener(FlexEvent.CREATION_COMPLETE, this.creationCompleteHandler);
-			LogManager.level = LogLevel.ALL;
 		}
 
 		//-----------------------------------------------------------------------------------------
