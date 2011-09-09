@@ -13,7 +13,7 @@
 			import org.foomo.logging.TerminalTarget;
 			import org.foomo.managers.LogManager;
 
-			LogManager.DEFAULT_LOGGING_TARGET = TerminalTarget;
+			LogManager.defaultLoggingTarget = TerminalTarget;
 			LogManager.level = LogLevel.ALL;
 
 		]]>
